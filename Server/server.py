@@ -23,7 +23,7 @@ class DiskUsageServer:
         print(message)
 
     def logerr(self, message, exc_info=False):
-        logging.error(message, exc_info)
+        logging.error(message, exc_info=exc_info)
         print(message)
 
     def setup_logging(self):
@@ -68,19 +68,23 @@ class DiskUsageServer:
             self.loginfo(f"Connection from {address}")
 
             # 1. Отправляем ключ клиенту
-            client_socket.sendall(self.key + b'\x00')  # Используем нулевой байт как разделитель
+            client_socket.sendall(self.key + b'\x00')
             
             # 2. Ждем подтверждения с таймаутом
-            client_socket.settimeout(5.0)  # 5 секунд на ответ
+            client_socket.settimeout(5.0)
             ack = client_socket.recv(1024)
             
-            if not ack or ack.strip() != b'KEY_RECEIVED':
-                raise ValueError(f"Invalid key acknowledgment: {ack}")
+            if not ack:
+                raise ValueError("Client closed connection without acknowledgment")
+            if ack.strip() != b'KEY_RECEIVED':
+                raise ValueError(f"Invalid key acknowledgment: {ack!r}")
 
             # 3. Получаем запрос
             request = client_socket.recv(1024)
+            if not request:
+                raise ValueError("Client closed connection without request")
             if request.strip() != b'get_disk_info':
-                raise ValueError(f"Invalid request: {request}")
+                raise ValueError(f"Invalid request: {request!r}")
 
             # 4. Отправляем данные
             system_info = self.get_system_info()
