@@ -1,0 +1,47 @@
+#!/bin/bash
+
+# Скрипт для установки Python, pip и необходимых библиотек на Manjaro/Arch Linux
+
+# Проверяем, запущен ли скрипт от root
+if [ "$(id -u)" -ne 0 ]; then
+    echo "Этот скрипт должен быть запущен с правами root (sudo)" >&2
+    exit 1
+fi
+
+# Функция для проверки установки пакета
+is_installed() {
+    pacman -Qi "$1" &>/dev/null
+    return $?
+}
+
+# Установка Python, если не установлен
+if ! is_installed python; then
+    echo "Установка Python..."
+    pacman -S --noconfirm python
+else
+    echo "Python уже установлен"
+fi
+
+# Установка pip, если не установлен
+if ! is_installed python-pip; then
+    echo "Установка pip..."
+    pacman -S --noconfirm python-pip
+else
+    echo "pip уже установлен"
+fi
+
+# Установка библиотек
+echo "Проверка и установка необходимых библиотек..."
+
+libs=("python-cryptography" "python-psutil")
+
+for lib in "${libs[@]}"; do
+    if ! is_installed "$lib"; then
+        echo "Установка $lib..."
+        pacman -S --noconfirm "$lib"
+    else
+        echo "$lib уже установлен"
+    fi
+done
+
+echo "Все компоненты успешно установлены!"
