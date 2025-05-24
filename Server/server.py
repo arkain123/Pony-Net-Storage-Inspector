@@ -18,6 +18,14 @@ class DiskUsageServer:
         self.server_socket = None
         self.setup_logging()
 
+    def loginfo(self, message):
+        logging.info(message)
+        print(message)
+
+    def logerr(self, message, exc_info=False):
+        logging.error(message, exc_info)
+        print(message)
+
     def setup_logging(self):
         """Настройка логирования"""
         logging.basicConfig(
@@ -42,7 +50,7 @@ class DiskUsageServer:
                     'fstype': partition.fstype
                 })
             except Exception as e:
-                logging.error(f"Disk {partition.mountpoint} error: {e}")
+                self.logerr(f"Disk {partition.mountpoint} error: {e}")
 
         return {
             'disks': disks,
@@ -57,7 +65,7 @@ class DiskUsageServer:
 
     def handle_client(self, client_socket, address):
         try:
-            logging.info(f"Connection from {address}")
+            self.loginfo(f"Connection from {address}")
 
             # 1. Отправляем ключ клиенту
             client_socket.sendall(self.key + b'\x00')  # Используем нулевой байт как разделитель
@@ -80,9 +88,9 @@ class DiskUsageServer:
             client_socket.sendall(encrypted)
 
         except socket.timeout:
-            logging.error(f"Timeout with {address}")
+            self.logerr(f"Timeout with {address}")
         except Exception as e:
-            logging.error(f"Error with {address}: {str(e)}", exc_info=True)
+            self.logerr(f"Error with {address}: {str(e)}", exc_info=True)
         finally:
             client_socket.close()
 
@@ -94,7 +102,7 @@ class DiskUsageServer:
             self.server_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
             self.server_socket.bind((self.host, self.port))
             self.server_socket.listen(5)
-            logging.info(f"Server started on {self.host}:{self.port}")
+            self.loginfo(f"Server started on {self.host}:{self.port}")
 
             while self.running:
                 client_socket, address = self.server_socket.accept()
@@ -106,7 +114,7 @@ class DiskUsageServer:
                 thread.start()
 
         except Exception as e:
-            logging.error(f"Server error: {e}", exc_info=True)
+            self.logerr(f"Server error: {e}", exc_info=True)
             self.stop()
 
     def stop(self):
@@ -114,7 +122,8 @@ class DiskUsageServer:
         self.running = False
         if self.server_socket:
             self.server_socket.close()
-        logging.info("Server stopped gracefully")
+        self.loginfo("Server stopped gracefully")
+
 
 def main():
     """Точка входа для запуска сервера"""
