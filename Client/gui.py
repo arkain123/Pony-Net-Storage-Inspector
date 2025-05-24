@@ -63,7 +63,7 @@ class DiskUsageApp:
         
     def setup_ui(self):
         """Настройка пользовательского интерфейса"""
-        self.root.title("Анализатор дискового пространства")
+        self.root.title("[PNSI] Pony Net Storage Inspector")
         self.root.geometry("1200x800")
         
         # Стили
