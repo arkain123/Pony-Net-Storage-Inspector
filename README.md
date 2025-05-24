@@ -10,11 +10,11 @@ ____
 - 24/7 support to resolve any issues.
 #### By Borodkin Dmitry
 
-[![GitHub](https://img.shields.io/github/license/arkain123/AviaMareWeb)](https://github.com/arkain123/AviaMareWeb/blob/master/LICENSE.txt)
-![Last Commit](https://img.shields.io/github/last-commit/arkain123/AviaMareWeb)
-![Downloads](https://img.shields.io/github/downloads/arkain123/AviaMareWeb/total)
-![Code Size](https://img.shields.io/github/languages/code-size/arkain123/AviaMareWeb)
-![Repo size](https://img.shields.io/github/repo-size/arkain123/AviaMareWeb)
+![GitHub](https://img.shields.io/github/license/arkain123/Pony-Net-Storage-Inspector)
+![Last Commit](https://img.shields.io/gitea/last-commit/arkain123/Pony-Net-Storage-Inspector)
+![Downloads](https://img.shields.io/github/downloads/arkain123/Pony-Net-Storage-Inspector/latest/total)
+![Code Size](https://img.shields.io/github/languages/code-size/arkain123/Pony-Net-Storage-Inspector)
+![Repo size](https://img.shields.io/github/repo-size/arkain123/Pony-Net-Storage-Inspector)
 
 
 ### Important information
@@ -62,11 +62,11 @@ ____
 - Поддержка 24/7 для решения любых вопросов.
 #### Создано Бородкиным Дмитрием
 
-[![GitHub](https://img.shields.io/github/license/arkain123/AviaMareWeb)](https://github.com/arkain123/AviaMareWeb/blob/master/LICENSE.txt)
-![Last Commit](https://img.shields.io/github/last-commit/arkain123/AviaMareWeb)
-![Downloads](https://img.shields.io/github/downloads/arkain123/AviaMareWeb/total)
-![Code Size](https://img.shields.io/github/languages/code-size/arkain123/AviaMareWeb)
-![Repo size](https://img.shields.io/github/repo-size/arkain123/AviaMareWeb)
+![GitHub](https://img.shields.io/github/license/arkain123/Pony-Net-Storage-Inspector)
+![Last Commit](https://img.shields.io/gitea/last-commit/arkain123/Pony-Net-Storage-Inspector)
+![Downloads](https://img.shields.io/github/downloads/arkain123/Pony-Net-Storage-Inspector/latest/total)
+![Code Size](https://img.shields.io/github/languages/code-size/arkain123/Pony-Net-Storage-Inspector)
+![Repo size](https://img.shields.io/github/repo-size/arkain123/Pony-Net-Storage-Inspector)
 
 
 ### Важная информация
