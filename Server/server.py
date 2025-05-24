@@ -75,7 +75,7 @@ class DiskUsageServer:
             ack = client_socket.recv(1024)
             
             if not ack:
-                raise ValueError("Client closed connection without acknowledgment")
+                self.loginfo("Probbing...")
             if ack.strip() != b'KEY_RECEIVED':
                 raise ValueError(f"Invalid key acknowledgment: {ack!r}")
 
