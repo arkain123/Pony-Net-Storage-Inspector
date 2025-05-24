@@ -76,7 +76,7 @@ class DiskUsageServer:
             
             if not ack:
                 self.loginfo("Probbing...")
-            if ack.strip() != b'KEY_RECEIVED':
+            elif ack.strip() != b'KEY_RECEIVED':
                 raise ValueError(f"Invalid key acknowledgment: {ack!r}")
 
             # 3. Получаем запрос
