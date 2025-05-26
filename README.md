@@ -8,7 +8,7 @@ ____
 > It helps system administrators and users visualize storage usage and optimize data distribution.
 - Intuitive interface that saves your time.
 - 24/7 support to resolve any issues.
-#### By Borodkin Dmitry
+#### By Borodkin Dmitry and Ragozin Gleb
 
 ![GitHub](https://img.shields.io/github/license/arkain123/Pony-Net-Storage-Inspector)
 ![Last Commit](https://img.shields.io/gitea/last-commit/arkain123/Pony-Net-Storage-Inspector)
@@ -60,7 +60,7 @@ ____
 > Он помогает системным администраторам и пользователям визуализировать использование хранилища и оптимизировать распределение данных.
 - Интуитивно понятный интерфейс, который экономит ваше время.
 - Поддержка 24/7 для решения любых вопросов.
-#### Создано Бородкиным Дмитрием
+#### Создано Бородкиным Дмитрием и Рагозиным Глебом
 
 ![GitHub](https://img.shields.io/github/license/arkain123/Pony-Net-Storage-Inspector)
 ![Last Commit](https://img.shields.io/gitea/last-commit/arkain123/Pony-Net-Storage-Inspector)
